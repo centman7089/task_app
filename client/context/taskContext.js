@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 const TasksContext = createContext();
 
 // const serverUrl = "https://task-app-teal-sigma.vercel.app";
-const serverUrl = "http://localhost:5000";
+const serverUrl = "https://task-app-5-zo4p.onrender.com";
 
 export const TasksProvider = ({ children }) => {
   const userId = useUserContext().user._id;
