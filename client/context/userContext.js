@@ -36,7 +36,7 @@ const serverUrl = "https://task-app-5-zo4p.onrender.com";
 
     try {
       const res = await axios.post(`${serverUrl}/api/v1/register`, userState);
-      console.log("User registered successfully", res.data);
+      // console.log("User registered successfully", res.data);
       toast.success("User registered successfully");
 
       // clear the form
@@ -50,7 +50,7 @@ const serverUrl = "https://task-app-5-zo4p.onrender.com";
       router.push("/login");
     } catch (error) {
       console.log("Error registering user", error);
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message);
     }
   };
 
@@ -148,7 +148,7 @@ const serverUrl = "https://task-app-5-zo4p.onrender.com";
     } catch (error) {
       console.log("Error getting user details", error);
       setLoading(false);
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message);
     }
   };
 
