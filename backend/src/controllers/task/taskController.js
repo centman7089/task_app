@@ -1,3 +1,4 @@
+// @ts-nocheck
 import asyncHandler from "express-async-handler";
 import TaskModel from "../../models/tasks/TaskModel.js";
 
@@ -166,4 +167,44 @@ export const deleteAllTasks = asyncHandler(async (req, res) => {
     console.log("Error in deleteAllTasks: ", error.message);
     res.status(500).json({ message: error.message });
   }
-});
+} );
+
+
+
+
+export const searchProduct = async(req,res)=>{
+    try{
+        const query = req.query.q 
+
+        const regex = new RegExp(query,'i','g')
+
+        const task = await TaskModel.find({
+            "$or" : [
+                {
+                    title : regex
+                },
+                {
+                    description : regex
+                }
+            ]
+        })
+
+
+        res.json({
+            data  : task ,
+            message : "Search task",
+            error : false,
+            success : true
+        })
+    }catch(err){
+        res.json({
+            message : err.message || err,
+            error : true,
+            success : false
+        })
+    }
+}
+
+
+
+

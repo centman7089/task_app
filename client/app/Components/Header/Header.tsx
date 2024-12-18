@@ -2,15 +2,25 @@
 import { useTasks } from "@/context/taskContext";
 import { useUserContext } from "@/context/userContext";
 import { github, moon, profile } from "@/utils/Icons";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
+
+
+import Search from "../Search/Search";
+
 
 function Header() {
-  const { user ,logoutUser} = useUserContext();
+
+
+  const { user, logoutUser } = useUserContext();
+
   const { openModalForAdd, activeTasks } = useTasks();
 
   const router = useRouter();
+
+ 
 
   const { name } = user;
 
@@ -39,6 +49,9 @@ function Header() {
           )}
         </p>
       </div>
+
+      <Search/>
+
       <div className="h-[50px] flex items-center gap-[10.4rem]">
         <button
           className="px-8 py-3 bg-[#3aafae] text-white rounded-[50px]

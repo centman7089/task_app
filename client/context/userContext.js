@@ -9,7 +9,7 @@ const UserContext = React.createContext();
 axios.defaults.withCredentials = true;
 
 export const UserContextProvider = ({ children }) => {
-  const serverUrl = "https://task-app-teal-sigma.vercel.app";
+const serverUrl = "http://localhost:5000";
 
   const router = useRouter();
 
