@@ -84,7 +84,7 @@ const serverUrl = "https://task-app-5-zo4p.onrender.com";
       router.push("/");
     } catch (error) {
       console.log("Error logging in user", error);
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message);
     }
   };
 
@@ -97,7 +97,7 @@ const serverUrl = "https://task-app-5-zo4p.onrender.com";
       });
 
       // coerce the string to boolean
-      loggedIn = !!res.data;
+      loggedIn = !!res?.data;
       setLoading(false);
 
       if (!loggedIn) {
@@ -125,7 +125,7 @@ const serverUrl = "https://task-app-5-zo4p.onrender.com";
       router.push("/login");
     } catch (error) {
       console.log("Error logging out user", error);
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message);
     }
   };
 
@@ -176,7 +176,7 @@ const serverUrl = "https://task-app-5-zo4p.onrender.com";
     } catch (error) {
       console.log("Error updating user details", error);
       setLoading(false);
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message);
     }
   };
 
@@ -197,7 +197,7 @@ const serverUrl = "https://task-app-5-zo4p.onrender.com";
     } catch (error) {
       console.log("Error sending email verification", error);
       setLoading(false);
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message);
     }
   };
 
